@@ -62,20 +62,26 @@ function calc() {
 }
 
 function voltar() {
-  // Mostrar o formulário novamente
-  document.getElementById("churrascoForm").style.display = "block";
+  inputHomens.value = "";
+  inputMulheres.value = "";
+  inputCriancas.value = "";
+  inputBebem.value = "";
 
-  // Limpar o resultado
+  document.getElementById("churrascoForm").style.display = "flex";
+
   document.getElementById("resultado").innerHTML = "";
   document.getElementById("resultado").style.display = "none";
 
-  // Ocultar o botão de voltar novamente
   document.getElementById("voltar").style.display = "none";
 
-  document.querySelector("h2").style.display = "block";
+  document.querySelector("#textDiv h2").style.display = "block";
+
+  const container = document.getElementById("container");
+  container.classList.remove("dark-mode");
+
+  toggleDarkModeButton.textContent = "Modo Escuro";
 }
 
-// Adicione este código ao seu arquivo script.js
 const toggleDarkModeButton = document.getElementById("toggleDarkMode");
 const body = document.body;
 
@@ -87,10 +93,8 @@ function toggleDarkMode() {
   container.classList.toggle("dark-mode");
 
   if (container.classList.contains("dark-mode")) {
-    // Se o modo escuro estiver ativado, altera o texto do botão para "Modo Claro"
     toggleDarkModeButton.textContent = "Modo Claro";
   } else {
-    // Se o modo escuro estiver desativado, altera o texto do botão de volta para "Modo Escuro"
     toggleDarkModeButton.textContent = "Modo Escuro";
   }
 }
